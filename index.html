@@ -12,6 +12,8 @@
 
 			body {
 				margin: 0;
+
+				font-family: 'Nanum Myeongjo', serif;
 			}
 
 			.page {
@@ -28,7 +30,6 @@
 
 				text-align: center;
 
-				font-family: 'Nanum Myeongjo', serif;
 				line-height: 100%;
 			}
 
@@ -120,6 +121,51 @@
 국무총리·국무위원 또는 정부위원은 국회나 그 위원회에 출석하여 국정처리상황을 보고하거나 의견을 진술하고 질문에 응답할 수 있다. 모든 국민은 인간다운 생활을 할 권리를 가진다.</p>
 				</div>
 			</div>
+			<div class="info">
+				<div class="time">
+					<h4>시각</h4>
+					<p>2017년 7월 16일 낮 12시</p>
+					<p id="left-time-to-wedding"></p>
+				</div>
+				<div class="place">
+					<h4>장소</h4>
+					<p>호텔리베라 (서울) 3층 베르사이유 홀</p>
+					<p>서울특별시 강남구 영동대로 737 호텔리베라</p>
+				</div>
+				<div class="bus">
+					<h4>전세버스</h4>
+					<p>오전 8시 50분 KAIST 본교 창의학습관 앞 <a href="http://dmaps.kr/rdho">(지도)</a></p>
+					<p>오전 9시 10분 대전광역시 대덕구 오정동 한남오거리 <a href="http://dmaps.kr/4n7fs">(지도)</a></p>
+				</div>
+			</div>
+			<div class="share">
+			</div>
 		</div>
+
+		<script>
+			var elemLeftTime = document.getElementById("left-time-to-wedding");
+			var weddingDate = new Date("2017-07-16 12:00:00");
+
+			setInterval(function () {
+				var now = new Date();
+
+				if (now.getFullYear() == weddingDate.getFullYear() &&
+					now.getMonth() == weddingDate.getMonth() &&
+					now.getDate() == weddingDate.getDate()) {
+					elemLeftTime.innerHTML = "오늘입니다!";
+				} else {
+					var leftTime = Math.floor((weddingDate.getTime() - now.getTime()) / 1000);
+					var day = Math.floor(leftTime / 86400);
+					leftTime %= 86400;
+					var hour = Math.floor(leftTime / 3600);
+					leftTime %= 3600;
+					var min = Math.floor(leftTime / 60);
+					leftTime %= 60;
+					var sec = leftTime;
+
+					elemLeftTime.innerHTML = day + "일 " + hour + "시간 " + min + "분 " + sec + "초 남았습니다.";
+				}
+			}, 1000);
+		</script>
 	</body>
 </html>
