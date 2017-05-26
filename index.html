@@ -80,6 +80,24 @@
 				text-align: left;
 				width: 80%;
 			}
+
+			@media screen and (max-width: 720px) {
+				#daumRoughmapContainer1495783197103 {
+					display: none;
+				}
+				#daumRoughmapContainer1495783272053 {
+					display: block;
+				}
+			}
+
+			@media screen and (min-width: 720px) {
+				#daumRoughmapContainer1495783197103 {
+					display: block;
+				}
+				#daumRoughmapContainer1495783272053 {
+					display: none;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -132,6 +150,8 @@
 					<p>호텔리베라 (서울) 3층 베르사이유 홀</p>
 					<p>서울특별시 강남구 영동대로 737 호텔리베라</p>
 				</div>
+				<div id="daumRoughmapContainer1495783197103" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+				<div id="daumRoughmapContainer1495783272053" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 				<div class="bus">
 					<h4>전세버스</h4>
 					<p>오전 8시 50분 KAIST 본교 창의학습관 앞 <a href="http://dmaps.kr/rdho">(지도)</a></p>
@@ -141,31 +161,25 @@
 			<div class="share">
 			</div>
 		</div>
+		
+		<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://spi.maps.daum.net/imap/map_js_init/roughmapLoader.js"></script>
 
-		<script>
-			var elemLeftTime = document.getElementById("left-time-to-wedding");
-			var weddingDate = new Date("2017-07-16 12:00:00");
+		<script charset="UTF-8">
+			new daum.roughmap.Lander({
+				"timestamp" : "1495783197103",
+				"key" : "huym",
+				"mapWidth" : "520",
+				"mapHeight" : "300"
+			}).render();
+		</script>
 
-			setInterval(function () {
-				var now = new Date();
-
-				if (now.getFullYear() == weddingDate.getFullYear() &&
-					now.getMonth() == weddingDate.getMonth() &&
-					now.getDate() == weddingDate.getDate()) {
-					elemLeftTime.innerHTML = "오늘입니다!";
-				} else {
-					var leftTime = Math.floor((weddingDate.getTime() - now.getTime()) / 1000);
-					var day = Math.floor(leftTime / 86400);
-					leftTime %= 86400;
-					var hour = Math.floor(leftTime / 3600);
-					leftTime %= 3600;
-					var min = Math.floor(leftTime / 60);
-					leftTime %= 60;
-					var sec = leftTime;
-
-					elemLeftTime.innerHTML = day + "일 " + hour + "시간 " + min + "분 " + sec + "초 남았습니다.";
-				}
-			}, 1000);
+		<script charset="UTF-8">
+			new daum.roughmap.Lander({
+				"timestamp" : "1495783272053",
+				"key" : "huyo",
+				"mapWidth" : "320",
+				"mapHeight" : "200"
+			}).render();
 		</script>
 	</body>
 </html>
