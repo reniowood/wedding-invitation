@@ -70,6 +70,10 @@
 				position: relative;
 			}
 
+			.slider .images img {
+				vertical-align: middle;
+			}
+
 			.slider .swipe-overlay {
 				position: absolute;
 				top: 0%;
@@ -83,16 +87,16 @@
 			.slider .indicator {
 				position: absolute;
 				width: 100%;
-				bottom: 16px;
+				bottom: 10px;
 			}
 
 			.slider .indicator .btn-indicator {
 				display: inline-block;
 				text-align: center;
 
-				width: 16px;
-				height: 16px;
-				margin: 0 5px;
+				width: 8px;
+				height: 8px;
+				margin: 0 2px;
 
 				border: 1px solid white;
 				border-radius: 50%;
@@ -352,8 +356,14 @@
 			function createImageElement(image) {
 				var elemImg = document.createElement('img');
 				$(elemImg).attr('src', image);
+
 				var elemOverlay = document.createElement('div');
 				$(elemOverlay).addClass('swipe-overlay');
+
+				var imgWidth = $(window).width();
+				$(elemOverlay).width(imgWidth);
+				$(elemOverlay).height(imgWidth);
+
 				var elem = document.createElement('div');
 				$(elem).css('display', 'none');
 				$(elem).append($(elemImg));
