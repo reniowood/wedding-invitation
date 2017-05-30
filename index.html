@@ -76,6 +76,27 @@
 				height: 500px;
 			}
 
+			.slider .indicator {
+				position: relative;
+				top: -32px;
+			}
+
+			.slider .indicator .btn-indicator {
+				display: inline-block;
+				text-align: center;
+
+				width: 16px;
+				height: 16px;
+				margin: 0 5px;
+
+				border: 1px solid white;
+				border-radius: 50%;
+			}
+
+			.slider .indicator .btn-indicator.on {
+				background-color: white;
+			}
+
 			#marrige {
 				margin-top: 100px;
 			}
@@ -229,8 +250,7 @@
 				<p>2015년 3월부터</p>
 				<div class="slider">
 					<div class="images"></div>
-					<div class="indicator">
-					</div>
+					<div class="indicator"></div>
 				</div>
 				<p>2년여의 만남 끝에</p>
 				
@@ -333,8 +353,8 @@
 				return $(elem);
 			}
 
-			function initImages(imagesClass) {
-				var $images = $(imagesClass).eq(0);
+			function initImages() {
+				var $images = $('.images').eq(0);
 				var numImages = sliderImages.length;
 				for (var i=0; i<numImages; i+=1) {
 					var $image = createImageElement(sliderImages[i]);
@@ -345,32 +365,54 @@
 				return $images.children();
 			}
 
-			function turnOnSliderSwipe($images) {
+			function turnOnSliderSwipe($images, $indicators) {
 				$images.find('.swipe-overlay').each(function (index) {
 					$(this).on('swipeleft', function () {
 						$images.eq(index).hide();
+						$indicators.eq(index).removeClass('on');
 						if ($images.eq(index).next().length) {
 							$images.eq(index).next().show();
+							$indicators.eq(index).next().addClass('on');
 						} else {
 							$images.eq(0).show();
+							$indicators.eq(0).addClass('on');
 						}
 					});
 
 					$(this).on('swiperight', function () {
 						$images.eq(index).hide();
+						$indicators.eq(index).removeClass('on');
 						if ($images.eq(index).prev().length) {
 							$images.eq(index).prev().show();
+							$indicators.eq(index).prev().addClass('on');
 						} else {
 							$images.eq($images.length - 1).show();
+							$indicators.eq($images.length - 1).addClass('on');
 						}
 					});
 				});
 			}
 
-			function initSlider() {
-				var $images = initImages('.images');
+			function addIndicator($images) {
+				var $indicator = $('.slider .indicator').eq(0);
 
-				turnOnSliderSwipe($images);
+				for (var i=0; i<$images.size(); i+=1) {
+					var button = document.createElement('span');
+					$(button).addClass('btn-indicator');
+
+					$indicator.append($(button));
+				}
+
+				$indicator.children().first().addClass('on');
+
+				return $indicator.children();
+			}
+
+			function initSlider() {
+				var $images = initImages();
+
+				$indicators = addIndicator($images);
+				turnOnSliderSwipe($images, $indicators);
 
 				$images.eq(0).css('display', 'block');
 			}
