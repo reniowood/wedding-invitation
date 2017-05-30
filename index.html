@@ -303,7 +303,7 @@
 		
 		<script>
 			function initKakaoSdk() {
-				Kakao.init('d2358ed3498fc001bc326830bda221a9');
+				Kakao.init('8d3e95607adb6b8876db4fc5a38ed928');
 			}
 
 			function hideLoadingMessage() {
@@ -349,9 +349,27 @@
 			}
 
 			function createKakaoLinkButton() {
-				Kakao.Link.createScrapButton({
+				Kakao.Link.createDefaultButton({
 					container: '#kakao-link-btn',
-					requestUrl: 'https://reniowood.github.io/wedding-invitation/'
+					objectType: 'location',
+					address: '서울 강남구 영동대로 737 3층 베르사이유홀',
+					addressTitle: '호텔리베라 청담 3층 베르사이유홀',
+					content: {
+						title: '은별 & 진혁 결혼합니다',
+						description: '두 사람의 결혼식에 초대합니다',
+						imageUrl: 'https://reniowood.github.io/wedding-invitation/images/og-image.jpg',
+						link: {
+							webUrl: 'https://reniowood.github.io/wedding-invitation/'
+						}
+					},
+					buttons: [
+						{
+						title: '웹으로 보기',
+						link: {
+							webUrl: 'https://reniowood.github.io/wedding-invitation/'
+						}
+						}
+					]
 				});
 			}
 
