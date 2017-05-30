@@ -12,11 +12,9 @@
 
 		<title>은별 & 진혁 결혼합니다</title>
 
-		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/nanummyeongjo.css">
 
 		<style>
-			@import url('//fonts.googleapis.com/earlyaccess/nanummyeongjo.css');
-
 			body {
 				margin: 0;
 
@@ -296,12 +294,30 @@
 			</div>
 		</div>
 
+		<noscript id="deferred-styles">
+			<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+		</noscript>
+
 		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
 		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 		<script class="daum_roughmap_loader_script" src="https://spi.maps.daum.net/imap/map_js_init/roughmapLoader.js"></script>
 		
 		<script>
+			function optimizeCSSDelivery() {
+				var loadDeferredStyles = function() {
+					var addStylesNode = document.getElementById("deferred-styles");
+					var replacement = document.createElement("div");
+					replacement.innerHTML = addStylesNode.textContent;
+					document.body.appendChild(replacement)
+					addStylesNode.parentElement.removeChild(addStylesNode);
+				};
+				var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+					webkitRequestAnimationFrame || msRequestAnimationFrame;
+				if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+				else window.addEventListener('load', loadDeferredStyles);
+			}
+
 			function initKakaoSdk() {
 				Kakao.init('8d3e95607adb6b8876db4fc5a38ed928');
 			}
@@ -371,6 +387,7 @@
 				});
 			}
 
+			optimizeCSSDelivery();
 			initKakaoSdk();
 			setMode();
 			loadDaumMap();
