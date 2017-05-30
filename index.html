@@ -12,7 +12,6 @@
 
 		<title>은별 & 진혁 결혼합니다</title>
 
-		<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
 
 		<style>
@@ -298,7 +297,6 @@
 		</div>
 
 		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-		<script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
 		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 		<script class="daum_roughmap_loader_script" src="https://spi.maps.daum.net/imap/map_js_init/roughmapLoader.js"></script>
@@ -306,10 +304,6 @@
 		<script>
 			function initKakaoSdk() {
 				Kakao.init('8d3e95607adb6b8876db4fc5a38ed928');
-			}
-
-			function hideLoadingMessage() {
-				$.mobile.loading().hide();
 			}
 			
 			function loadDaumMap() {
@@ -378,7 +372,6 @@
 			}
 
 			initKakaoSdk();
-			hideLoadingMessage();
 			setMode();
 			loadDaumMap();
 			createKakaoLinkButton();
