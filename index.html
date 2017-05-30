@@ -4,6 +4,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
 		<style>
 			@import url('https://fonts.googleapis.com/earlyaccess/jejumyeongjo.css');
 			@import url('https://fonts.googleapis.com/earlyaccess/kopubbatang.css');
@@ -30,7 +32,7 @@
 
 				text-align: center;
 
-				line-height: 100%;
+				line-height: 160%;
 			}
 
 			.title > h1 {
@@ -50,6 +52,32 @@
 
 			.desc {
 				text-align: center;
+
+				margin-bottom: 100px;
+			}
+
+			.meet {
+				text-align: center;
+
+				margin-bottom: 100px;
+			}
+
+			.slider {
+				position: relative;
+			}
+
+			.slider .swipe-overlay {
+				position: absolute;
+				top: 0%;
+				left: 50%;
+				transform: translate(-50%, 0%);
+
+				width: 500px;
+				height: 500px;
+			}
+
+			#marrige {
+				margin-top: 100px;
 			}
 
 			.intro {
@@ -63,6 +91,8 @@
 
 			.intro-header > h4 {
 				font-size: 20px;
+
+				margin-bottom: 10px;
 			}
 
 			.solo-face {
@@ -89,6 +119,7 @@
 				text-align: center;
 
 				font-size: 18px;
+				line-height: 1.3;
 			}
 
 			.info h4 {
@@ -115,20 +146,37 @@
 
 			}
 
-			@media screen and (max-width: 720px) {
-				#daumRoughmapContainer1495783197103 {
+			@media screen and (max-width: 500px) {
+				#daumRoughmapContainer1495787349676 {
 					display: none;
 				}
 				#daumRoughmapContainer1495783272053 {
 					display: block;
 				}
+
+				.slider .images img {
+					 width: 100%;
+				}
+
+				.swipe-overlay {
+					display: block;
+				}
 			}
 
-			@media screen and (min-width: 720px) {
-				#daumRoughmapContainer1495783197103 {
+			@media screen and (min-width: 500px) {
+				#daumRoughmapContainer1495787349676 {
 					display: block;
 				}
 				#daumRoughmapContainer1495783272053 {
+					display: none;
+				}
+
+				.slider .images img {
+					 width: 500px;
+					 margin: 0 auto;
+				}
+
+				.swipe-overlay {
 					display: none;
 				}
 			}
@@ -146,7 +194,7 @@
 			<div class="desc">
 				<div class="intro">
 					<div class="intro-header">
-						<img class="solo-face" src="eb-solo.jpg">
+						<img class="solo-face" src="images/eb-solo.jpg">
 						<h4>조은별</h4>
 						<p>멋진 하니사</p>
 					</div>
@@ -162,7 +210,7 @@
 				</div>
 				<div class="intro">
 					<div class="intro-header">
-						<img class="solo-face" src="jh-solo.jpg">
+						<img class="solo-face" src="images/jh-solo.jpg">
 						<h4>김진혁</h4>
 						<p>예쁜 프로그래머</p>
 					</div>
@@ -177,6 +225,17 @@
 					</div>
 				</div>
 			</div>
+			<div class="meet">
+				<p>2015년 3월부터</p>
+				<div class="slider">
+					<div class="images"></div>
+					<div class="indicator">
+					</div>
+				</div>
+				<p>2년여의 만남 끝에</p>
+				
+				<h2 id="marrige">결&nbsp;&nbsp;혼&nbsp;&nbsp;합&nbsp;&nbsp;니&nbsp;&nbsp;다</h2>
+			</div>
 			<div class="info">
 				<div class="time">
 					<h4>시각</h4>
@@ -187,7 +246,7 @@
 					<h4>장소</h4>
 					<p>호텔리베라 (서울) 3층 베르사이유 홀</p>
 					<div class="map">
-						<div id="daumRoughmapContainer1495783197103" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+						<div id="daumRoughmapContainer1495787349676" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 						<div id="daumRoughmapContainer1495783272053" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 					</div>
 					<p class="small-p">서울특별시 강남구 영동대로 737 호텔리베라</p>
@@ -203,13 +262,16 @@
 			<div class="share">
 			</div>
 		</div>
+
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		
 		<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://spi.maps.daum.net/imap/map_js_init/roughmapLoader.js"></script>
 
 		<script charset="UTF-8">
 			new daum.roughmap.Lander({
-				"timestamp" : "1495783197103",
-				"key" : "huym",
+				"timestamp" : "1495787349676",
+				"key" : "hv32",
 				"mapWidth" : "520",
 				"mapHeight" : "300"
 			}).render();
@@ -231,19 +293,89 @@
 			}
 
 			var mode = getParameterByName('m');
-			var introContentElements = document.getElementsByClassName('intro-content');
+			var $introContentElements = $('.intro-content');
 
 			switch (mode) {
 				case 'd':
 					break;
 				case 's':
 				default:
-					Array.prototype.map.call(introContentElements, function (elem) {
-						elem.style.display = 'none';
+					$introContentElements.each(function () {
+						$(this).css('display', 'none');
 					});
 
 					break;
 			}
+		</script>
+
+		<script>
+			var sliderImages = [
+				"images/couple0.jpg",
+				"images/couple1.jpg",
+				"images/couple2.jpg",
+				"images/couple3.jpg",
+				"images/couple4.jpg",
+				"images/couple5.jpg",
+				"images/couple6.jpg",
+				"images/couple7.jpg"
+			];
+
+			function createImageElement(image) {
+				var elemImg = document.createElement('img');
+				$(elemImg).attr('src', image);
+				var elemOverlay = document.createElement('div');
+				$(elemOverlay).addClass('swipe-overlay');
+				var elem = document.createElement('div');
+				$(elem).css('display', 'none');
+				$(elem).append($(elemImg));
+				$(elem).append($(elemOverlay));
+
+				return $(elem);
+			}
+
+			function initImages(imagesClass) {
+				var $images = $(imagesClass).eq(0);
+				var numImages = sliderImages.length;
+				for (var i=0; i<numImages; i+=1) {
+					var $image = createImageElement(sliderImages[i]);
+
+					$images.append($image);
+				}
+
+				return $images.children();
+			}
+
+			function turnOnSliderSwipe($images) {
+				$images.find('.swipe-overlay').each(function (index) {
+					$(this).on('swipeleft', function () {
+						$images.eq(index).hide();
+						if ($images.eq(index).next().length) {
+							$images.eq(index).next().show();
+						} else {
+							$images.eq(0).show();
+						}
+					});
+
+					$(this).on('swiperight', function () {
+						$images.eq(index).hide();
+						if ($images.eq(index).prev().length) {
+							$images.eq(index).prev().show();
+						} else {
+							$images.eq($images.length - 1).show();
+						}
+					});
+				});
+			}
+
+			function initSlider() {
+				var $images = initImages('.images');
+
+				turnOnSliderSwipe($images);
+
+				$images.eq(0).css('display', 'block');
+			}
+
+			initSlider();
 		</script>
 	</body>
 </html>
