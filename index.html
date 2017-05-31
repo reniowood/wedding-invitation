@@ -58,7 +58,7 @@
 			#intro {
 				text-align: center;
 
-				margin-bottom: 100px;
+				margin-bottom: 25px;
 			}
 
 			#intro .intro-person {
@@ -101,7 +101,7 @@
 			#meet {
 				text-align: center;
 
-				margin-bottom: 100px;
+				margin-bottom: 50px;
 			}
 
 			#slider {
@@ -148,6 +148,23 @@
 				text-decoration: none;
 			}
 
+			hr.heart-line {
+				border: 0px;
+				border-top: 4px double #8c8b8b;
+				text-align: center;
+				width: 200px;
+			}
+			hr.heart-line:after {
+				content: '\002665';
+				display: inline-block;
+				position: relative;
+				top: -15px;
+				padding: 0 10px;
+				background: #ffffff;
+				color: #8c8b8b;
+				font-size: 18px;
+			}
+
 			@media screen and (max-width: 500px) {
 				#daumRoughmapContainer1495787349676 {
 					display: none;
@@ -187,6 +204,7 @@
 			</div>
 		</div>
 		<div class="page" style="top: 100%;">
+			<hr class="heart-line">
 			<div id="intro">
 				<div class="intro-person">
 					<div class="intro-header">
@@ -269,6 +287,7 @@
 				<p>2년여의 만남 끝에</p>				
 				<span id="marriage">결&nbsp;&nbsp;혼&nbsp;&nbsp;합&nbsp;&nbsp;니&nbsp;&nbsp;다</span>
 			</div>
+			<hr class="heart-line">
 			<div id="info">
 				<div id="info-time">
 					<h4>시각</h4>
@@ -293,6 +312,7 @@
 					<p>대전광역시 대덕구 오정동 한남오거리 <a href="http://dmaps.kr/4n7fs">(지도)</a></p>
 				</div>
 			</div>
+			<hr class="heart-line">
 			<div id="share">
 				<h4>공유하기</h4>
 				<a id="kakao-link-btn" href="javascript:;">
