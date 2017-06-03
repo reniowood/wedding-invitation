@@ -31,6 +31,11 @@
 				display: none;
 			}
 
+			.half-column {
+				display: inline-block;
+				width: 50%;
+			}
+
 			#title {
 				position: absolute;
 				top: 50%;
@@ -141,6 +146,24 @@
 				display: inline-block;
 			}
 
+			#call {
+				text-align: center;
+			}
+
+			#call .person {
+			}
+
+			#call .person .name {
+				font-weight: bold;
+			}
+
+			#call .person .icon {
+				width: 24px;
+				height: 24px;
+
+				margin: 10px 2px;
+			}
+
 			#share {
 				margin-bottom: 32px;
 
@@ -149,6 +172,12 @@
 
 			#kakao-link-btn {
 				text-decoration: none;
+			}
+
+			#license {
+				font-size: 10px;
+
+				text-align: center;
 			}
 
 			hr.heart-line {
@@ -195,6 +224,10 @@
 				#slider .swiper-button-white {
 					display: none;
 				}
+
+				#call {
+					display: none;
+				}
 			}
 		</style>
 	</head>
@@ -211,7 +244,7 @@
 			<div id="intro">
 				<div class="intro-person">
 					<div class="intro-header">
-						<h4>조구상·김현경의 딸</h4>
+						<h3 class="intro-parent-name">조구상·김현경의 딸</h4>
 						<img class="intro-face" src="images/eb-solo.jpg">
 						<h4 class="intro-name">조은별</h4>
 						<p>멋진 한의사</p>
@@ -228,7 +261,7 @@
 				</div>
 				<div class="intro-person">
 					<div class="intro-header">
-						<h4>김병기·이미호의 아들</h4>
+						<h3 class="intro-parent-name">김병기·이미호의 아들</h4>
 						<img class="intro-face" src="images/jh-solo.jpg">
 						<h4 class="intro-name">김진혁</h4>
 						<p>예쁜 프로그래머</p>
@@ -318,11 +351,63 @@
 				</div>
 			</div>
 			<hr class="heart-line">
+			<div id="call">
+				<h4>연락하기</h4>
+				<div class="half-column">
+					<div class="person">
+						<span class="name">조은별</span>
+						<div>
+							<a href="tel:+821099000665"><img class="icon" src="images/phone.svg"></a>
+							<a href="sms:+821099000665"><img class="icon" src="images/chat.svg"></a>
+						</div>
+					</div>
+					<div class="person">
+						<span class="name">조구상</span>
+						<div>
+							<a href="tel:+821043180665"><img class="icon" src="images/phone.svg"></a>
+							<a href="sms:+821043180665"><img class="icon" src="images/chat.svg"></a>
+						</div>
+					</div>
+					<div class="person">
+						<span class="name">김현경</span>
+						<div>
+							<a href="tel:+821073680665"><img class="icon" src="images/phone.svg"></a>
+							<a href="sms:+821073680665"><img class="icon" src="images/chat.svg"></a>
+						</div>
+					</div>
+				</div><div class="half-column">
+					<div class="person">
+						<span class="name">김진혁</span>
+						<div>
+							<a href="tel:+821099315361"><img class="icon" src="images/phone.svg"></a>
+							<a href="sms:+821099315361"><img class="icon" src="images/chat.svg"></a>
+						</div>
+					</div>
+					<div class="person">
+						<span class="name">김병기</span>
+						<div>
+							<a href="tel:+821084245361"><img class="icon" src="images/phone.svg"></a>
+							<a href="sms:+821084245361"><img class="icon" src="images/chat.svg"></a>
+						</div>
+					</div>
+					<div class="person">
+						<span class="name">이미호</span>
+						<div>
+							<a href="tel:+821054285361"><img class="icon" src="images/phone.svg"></a>
+							<a href="sms:+821054285361"><img class="icon" src="images/chat.svg"></a>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div id="share">
 				<h4>공유하기</h4>
 				<a id="kakao-link-btn" href="javascript:;">
 					<img src="//dev.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" class="share-icon">
 				</a>
+			</div>
+			<hr class="heart-line">
+			<div id="license">
+				<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 			</div>
 		</div>
 
