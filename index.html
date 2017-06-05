@@ -216,6 +216,11 @@
 
 				#slider .swiper-button-black {
 					display: none;
+				}				
+
+				#intro .intro-person.for-detail {
+					width: 100%;
+					margin-bottom: 25px;
 				}
 			}
 
@@ -235,6 +240,10 @@
 
 				#call {
 					display: none;
+				}
+
+				#intro .intro-person.for-detail {
+					width: 49%;
 				}
 			}
 		</style>
@@ -455,10 +464,7 @@
 					$(this).css('display', 'block');
 				});
 
-				$('#intro .intro-person').css({
-					'width': '100%',
-					'margin-bottom': '25px'
-				});
+				$('#intro .intro-person').addClass('for-detail');
 				$('#call').hide();
 			}
 
