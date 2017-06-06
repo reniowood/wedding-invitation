@@ -488,7 +488,8 @@
 
 			function createKakaoLinkButton() {
 				var linkUrl = 'https://reniowood.github.io/wedding-invitation/' + (window.mode === 'd' ? '?m=d' : '');
-				
+				var description = window.mode === 'd' ? '두 사람의 결혼식에 초대합니다' : '참석하셔서 자리를 빛내주십시오';
+
 				Kakao.Link.createDefaultButton({
 					container: '#kakao-link-btn',
 					objectType: 'location',
@@ -496,7 +497,7 @@
 					addressTitle: '호텔리베라 청담 3층 베르사이유홀',
 					content: {
 						title: '은별 & 진혁 결혼합니다',
-						description: '두 사람의 결혼식에 초대합니다',
+						description: description,
 						imageUrl: 'https://reniowood.github.io/wedding-invitation/images/og-image2.jpg',
 						link: {
 							webUrl: linkUrl,
